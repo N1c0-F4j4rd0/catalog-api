@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-// Modal de confirmación propio (reemplaza el confirm() del navegador).
 export default function ConfirmDialog({ title, message, confirmText = "Eliminar", onConfirm, onCancel }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onCancel(); };

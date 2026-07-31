@@ -47,7 +47,6 @@ button {
 button:hover:not(:disabled) { background: #f0f2f5; }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* Botón primario */
 button[type="submit"] {
   background: var(--primary);
   border-color: var(--primary);
@@ -55,7 +54,6 @@ button[type="submit"] {
 }
 button[type="submit"]:hover { background: var(--primary-hover); }
 
-/* Tabla */
 table {
   width: 100%;
   border-collapse: collapse;

@@ -41,9 +41,8 @@ export default function Products() {
   const [page, setPage] = useState(1);
   const { logout } = useAuth();
 
-  // Estado de los modales
   const [formModal, setFormModal] = useState({ open: false, product: null });
-  const [confirmDelete, setConfirmDelete] = useState(null); // guarda el producto a borrar
+  const [confirmDelete, setConfirmDelete] = useState(null); 
 
   const load = async () => {
     const { data } = await api.get("/Products", {

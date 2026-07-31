@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 
-// Modal genérico: overlay borroso + tarjeta centrada.
-// Se cierra con la X, con clic fuera, o con la tecla Escape.
 export default function Modal({ title, onClose, children, footer }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };

@@ -482,3 +482,5 @@ frontend/dist/
 
 # Entorno local
 global.json
+dotnet-install.sh
+dotnet-install.sh

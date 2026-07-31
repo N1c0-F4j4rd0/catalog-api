@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form";
 import { api } from "../api/client";
 import Modal from "./Modal";
 
-// Modal de crear/editar. Si recibe "product" -> modo edición; si no -> creación.
-// Llama a onSaved() cuando guarda bien, para que la tabla se recargue.
 export default function ProductFormModal({ product, onClose, onSaved }) {
   const isEdit = Boolean(product);
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
