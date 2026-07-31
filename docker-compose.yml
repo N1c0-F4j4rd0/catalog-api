@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: catalog
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports: ["5433:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+
+  api:
+    build: .
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=catalog;Username=postgres;Password=postgres"
+      Jwt__Key: "CAMBIA_ESTA_LLAVE_POR_UNA_LARGA_Y_SEGURA_32+CHARS"
+      Jwt__Issuer: "catalog-api"
+      Jwt__Audience: "catalog-api-clients"
+      SeedUser__Username: "admin"
+      SeedUser__Password: "Admin123!"
+    ports: ["8080:8080"]
+
+volumes:
+  pgdata:
